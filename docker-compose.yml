@@ -1,0 +1,12 @@
+version: '3.7'
+
+services:
+  docker-python-example:
+    container_name: docker-python-example
+    hostname: docker-python-example
+    image: docker/docker-python-example
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    ports:
+    - 8000:8000
