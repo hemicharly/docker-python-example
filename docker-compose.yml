@@ -9,4 +9,6 @@ services:
       context: .
       dockerfile: docker/Dockerfile
     ports:
-    - 8000:8000
+      - 8000:8000
+    volumes:
+      - ./logs:/logs
