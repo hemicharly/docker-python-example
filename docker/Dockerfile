@@ -10,9 +10,6 @@ RUN mkdir -m 777 /logs
 # Local aonde será salvo o projeto
 WORKDIR /app
 
-# Copiando os arquivos do projeto para dentro do docker
-COPY ./app/src ./
-
 # Iniciando a aplicação python
 CMD ["python", "app.py"]
 
