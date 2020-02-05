@@ -26,5 +26,5 @@ services:
       - ./logs:/logs
       - ./app/src:/app
     depends_on:
-      - docker-python-example]
+      - docker-python-example
     restart: always
