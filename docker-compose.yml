@@ -7,7 +7,7 @@ services:
     image: docker/docker-python-example
     build:
       context: .
-      dockerfile: docker/Dockerfile
+      dockerfile: docker/python/Dockerfile
     ports:
       - 8000:8000
     volumes:
