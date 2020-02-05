@@ -14,5 +14,5 @@ COPY docker/python/requirements.txt requirements.txt
 RUN pip3 install -r requirements.txt
 
 # Iniciando a aplicação python
-CMD ["python", "app.py"]
+CMD ["gunicorn", "--bind", "0.0.0.0:8000","wsgi:app"]
 
