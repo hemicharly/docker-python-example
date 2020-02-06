@@ -1,5 +1,10 @@
 # Imagem do python
-FROM python:3.7-alpine
+FROM python:3.7-slim
+
+# Instalando libs do sistema operacional para mysql
+RUN apt-get update
+RUN apt-get install -y \
+    python3-dev python3-mysqldb
 
 # Cria pasta de logs
 RUN mkdir -m 777 /logs
