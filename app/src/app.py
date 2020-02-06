@@ -11,7 +11,7 @@ app = Flask(__name__)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ["DB_URL_CONNECT"]
 db = SQLAlchemy(app)
-db.create_all() # Cria tabela caso não existir
+
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -35,6 +35,7 @@ def list_user():
     return str(users)
 
 if __name__ == '__main__':
+    db.create_all()  # Cria tabela caso não existir
     handler = RotatingFileHandler('/logs/app.log', maxBytes=10000, backupCount=1)
     handler.setLevel(logging.INFO)
     app.logger.addHandler(handler)
