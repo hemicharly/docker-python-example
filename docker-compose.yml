@@ -12,6 +12,10 @@ services:
       - ./logs:/logs
       - ./app/src:/app
     restart: always
+    environment:
+      DB_URL_CONNECT: "mysql+pymysql://root:root@mysql-db/bhut"
+    depends_on:
+      - mysql-db
 
   docker-nginx-example:
     container_name: docker-nginx-example
@@ -28,3 +32,19 @@ services:
     depends_on:
       - docker-python-example
     restart: always
+
+
+  mysql-db:
+    container_name: mysql-db
+    image: mysql:5.7
+    restart: always
+    ports:
+      - 3307:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=bhut
+    volumes:
+      - dbdata:/var/lib/mysql
+
+volumes:
+  dbdata:
